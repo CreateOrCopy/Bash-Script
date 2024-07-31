@@ -28,6 +28,7 @@ w
 EOF
 
 mkidr /data
+mkdir /mnt/etc/fstab
 mkfs.ext4 /dev/vdb1
 sleep 1
 pvcreate /dev/vdb2 /dev/vdb3
@@ -35,3 +36,11 @@ sleep 1
 vgcreate pcteam /dev/vdb2 /dev/vdb3
 sleep 1
 lvcreate -n sysadmin -L 500M pcteam
+mkfs.ext4 /dev/pcteam/sysadmin
+echo "/dev/vdb1 /data ext4 defaults 0 0" >> /etc/fstab
+echo "/dev/pcteam/sysadmin /mnt/pcteam-storage ext4 defaults 0 0" >> /etc/fstab
+
+udevadm settle
+systemctl daemon-reload
+sleep 5
+mount -a
