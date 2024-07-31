@@ -106,3 +106,5 @@ No7
 sleep 5
 No8
 echo "Finish"
+
+echo "Need check NO. 9, crontab, and create file in cyber-ranger"
