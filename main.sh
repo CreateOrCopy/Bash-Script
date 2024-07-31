@@ -82,6 +82,7 @@ systemctl start nfs-common
 echo "/- /etc/auto.cyber-ranger" > /etc/auto.master.d/cyber-ranger.autofs
 echo "/mnt/pcteam -rw,sync,fstype=nfs4 192.168.100.10:/mnt/pcteam" > /etc/auto.cyber-ranger
 systemctl restart autofs
+usermod -p sysadmin cyber-ranger
 echo "please Create the file if the directory not exist"
 echo "DONE"
 }
