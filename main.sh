@@ -101,4 +101,19 @@ echo "DONE"
 echo ""
 sleep 2
 
+No1
+sleep 5
+No2
+sleep 5
+No3
+sleep 5
+No4
+sleep 5
+No5
+sleep 5
+No6
+sleep 5
+No7
+sleep 5
+No8
 echo "Finish"
