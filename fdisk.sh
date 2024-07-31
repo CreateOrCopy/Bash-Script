@@ -28,17 +28,23 @@ w
 EOF
 
 mkidr /data
+sleep 2
 mkdir /mnt/pcteam-storage
+sleep 2
 mkfs.ext4 /dev/vdb1
-sleep 1
+sleep 2
 pvcreate /dev/vdb2 /dev/vdb3
-sleep 1
+sleep 2
 vgcreate pcteam /dev/vdb2 /dev/vdb3
-sleep 1
+sleep 2
 lvcreate -n sysadmin -L 500M pcteam
+sleep 2
 mkfs.ext4 /dev/pcteam/sysadmin
+sleep 2
 echo "/dev/vdb1 /data ext4 defaults 0 0" >> /etc/fstab
+sleep 2
 echo "/dev/pcteam/sysadmin /mnt/pcteam-storage ext4 defaults 0 0" >> /etc/fstab
+sleep 2
 
 udevadm settle
 systemctl daemon-reload
