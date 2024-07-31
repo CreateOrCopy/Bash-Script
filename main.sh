@@ -68,6 +68,7 @@ function No6 () {
 echo "No. 6"
 echo "server time.cloudflare.com iburst" >> /etc/chrony/chrony.conf
 systemctl restart chrony
+systemctl restart chronyd
 sleep 15
 chronyc sources
 sleep 2
@@ -81,7 +82,7 @@ touch search.txt
 grep /bin/bash /etc/passwd > search.txt
 sleep 2
 
-find /usr/share -type f -iname *.txt -exec tar -czf /root/archive.tar.gz {} 2> /dev/null \;
+find /usr/share -type f -iname "*.txt" -exec tar -czf /root/archive.tar.gz {} 2> /dev/null \;
 sleep 7
 echo "DONE"
 }
@@ -92,7 +93,7 @@ sleep 5
 systemctl enable --now nfs-common
 systemctl start nfs-common
 echo "/- /etc/auto.cyber-ranger" > /etc/auto.master.d/cyber-ranger.autofs
-echo "/mnt/pcteam -rw,sync,fstype=nfs 192.168.100.10:/mnt/pcteam" > /etc/auto.cyber-ranger
+echo "/mnt/pcteam -rw,sync,fstype=nfs4 192.168.100.10:/mnt/pcteam" > /etc/auto.cyber-ranger
 systemctl restart autofs
 echo "please Create the file if the directory not exist"
 echo "DONE"
