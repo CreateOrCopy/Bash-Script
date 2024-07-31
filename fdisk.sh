@@ -28,7 +28,7 @@ w
 EOF
 
 mkidr /data
-mkdir /mnt/etc/fstab
+mkdir /mnt/pcteam-storage
 mkfs.ext4 /dev/vdb1
 sleep 1
 pvcreate /dev/vdb2 /dev/vdb3
