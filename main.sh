@@ -106,7 +106,7 @@ if __name__ == "__main__":
 	sample.run(host="0.0.0.0", port=8080, debug=False)
 EOF
 
-cat << EOF > /opt/pcteamwebapp/templates
+cat << EOF > /opt/pcteamwebapp/templates/index.html
 <html>
 <head>
 	<title>PCTeam WebAPP</title>
