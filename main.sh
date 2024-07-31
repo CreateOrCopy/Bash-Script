@@ -77,7 +77,7 @@ echo "DONE"
 
 function No7 () {
 echo ""
-echo "No. 6"
+echo "No. 7"
 touch search.txt
 grep /bin/bash /etc/passwd > search.txt
 sleep 2
