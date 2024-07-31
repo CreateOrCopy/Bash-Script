@@ -10,9 +10,6 @@ sleep 2
 echo "DONE"
 }
 
-echo ""
-sleep 1
-
 function No2 () {
 echo -e "No2"
 
@@ -25,9 +22,6 @@ useradd -m -s /sbin/nologin -p sysadmin fathur
 echo "DONE"
 }
 
-echo ""
-sleep 1
-
 function No3 () {
 echo "No. 3"
 dir=/shared/pcteam
@@ -39,9 +33,6 @@ ls -ld /shared/pcteam
 echo "DONE"
 }
 
-echo ""
-sleep 1
-
 function No4 () {
 
 echo "No.4"
@@ -49,8 +40,6 @@ echo "%pcteam ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/pcteam
 sleep 2
 echo "DONE"
 }
-
-echo ""
 
 function No5 () {
 
@@ -61,8 +50,6 @@ touch /shared/pcteam/lontong
 ls -l /shared/pcteam
 sleep 2
 }
-
-echo ""
 
 function No6 () {
 echo "No. 6"
