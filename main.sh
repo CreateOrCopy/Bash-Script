@@ -61,6 +61,7 @@ sed -i 's/pool 2.debian.pool.ntp.org iburst/#pool 2.debian.pool.ntp.org iburst/g
 systemctl restart chrony
 systemctl restart chronyd
 sleep 15
+systemctl restart chrony
 chronyc sources
 sleep 2
 echo "DONE"
