@@ -121,13 +121,13 @@ cd /opt/pcteamwebapp
 docker build . -t pcteam:latest
 sleep 60
 docker container rm pcteamwebapp
-sleep 30
+sleep 60
 docker docker run -d -p 80:8080 --name pcteamwebapp --restart always pcteam:latest
-sleep 30
+sleep 60
 docker tag pcteam:latest localhost:5000/pcteam:2.0
-sleep 30
+sleep 60
 docker push localhost:5000/pcteam:2.0
-sleep 30
+sleep 60
 }
 
 echo ""
