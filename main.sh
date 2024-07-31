@@ -148,6 +148,14 @@ sleep 5
 No7
 sleep 5
 No8
+sleep 5
+Docker
 echo "Finish"
+
+cat << EOF
+su - cyber-ranger
+touch fieshare
+exit
+EOF
 
 echo "Need check NO. 9, crontab, and create file in cyber-ranger"
