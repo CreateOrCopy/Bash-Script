@@ -1,4 +1,7 @@
 #!/bin/bash
+apt install sudo -y
+
+sleep 30
 echo "START"
 sleep 1
 
