@@ -57,6 +57,7 @@ sleep 2
 function No6 () {
 echo "No. 6"
 echo "server time.cloudflare.com iburst" >> /etc/chrony/chrony.conf
+sed -i 's/pool 2.debian.pool.ntp.org iburst/#pool 2.debian.pool.ntp.org iburst/g' filename
 systemctl restart chrony
 systemctl restart chronyd
 sleep 15
@@ -88,6 +89,44 @@ systemctl restart autofs
 usermod -p sysadmin cyber-ranger
 echo "please Create the file if the directory not exist"
 echo "DONE"
+}
+
+function Docker () {
+mkdir /opt/pcteamwebapp/templates
+cat << EOF > /opt/pcteamwebapp/main.py
+from flask import Flask
+from flask import request
+from flask import render_template
+sample = Flask(__name__)
+@sample.route("/")
+def main():
+	return render_template("index.html", hostname=request.remote_addr)
+if __name__ == "__main__":
+	sample.run(host="0.0.0.0", port=8080, debug=False)
+EOF
+
+cat << EOF > /opt/pcteamwebapp/templates
+<html>
+<head>
+	<title>PCTeam WebAPP</title>
+</head>
+<body>
+	<h1>You are calling me from {{hostname}}</h1>
+</body>
+</html>
+EOF
+
+cd /opt/pcteamwebapp
+docker build . -t pcteam:latest
+sleep 60
+docker container rm pcteamwebapp
+sleep 30
+docker docker run -d -p 80:8080 --name pcteamwebapp --restart always pcteam:latest
+sleep 15
+docker tag pcteam:latest localhost:5000/pcteam:2.0
+sleep 15
+docker push localhost:5000/pcteam:2.0
+sleep 15
 }
 
 echo ""
