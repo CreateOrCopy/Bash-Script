@@ -123,11 +123,11 @@ sleep 60
 docker container rm pcteamwebapp
 sleep 30
 docker docker run -d -p 80:8080 --name pcteamwebapp --restart always pcteam:latest
-sleep 15
+sleep 30
 docker tag pcteam:latest localhost:5000/pcteam:2.0
-sleep 15
+sleep 30
 docker push localhost:5000/pcteam:2.0
-sleep 15
+sleep 30
 }
 
 echo ""
