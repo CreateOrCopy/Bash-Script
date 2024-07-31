@@ -27,7 +27,7 @@ p
 w
 EOF
 
-mkidr /data
+mkdir /data
 sleep 2
 mkdir /mnt/pcteam-storage
 sleep 2
