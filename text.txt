@@ -1,0 +1,64 @@
+#!/bin/bash
+
+echo -e "\e[42mNo.1\e[0m"
+hostnamectl hostname machine1.pcteam.id
+hostname
+sleep 2
+echo "DONE"
+
+echo ""
+sleep 1
+echo -e "\e[42mNo.2\e[0m"
+
+for i in {kelvin,ruben}; do
+
+	useradd  -m -s /bin/bash -p sysadmin -G pcteam $i
+done
+usermod -u 1999 ruben
+useradd -m -s /sbin/nologin -p sysadmin fathur
+echo "DONE"
+echo ""
+
+sleep 1
+
+echo "No. 2"
+dir=/shared/pcteam
+mkdir -p $dir
+chown :pcteam $dir
+chmod g+s $dir
+chmod 770 $dir
+ls -ld /shared/pcteam
+echo "DONE"
+echo ""
+
+echo "No.3"
+echo "%pcteam ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/pcteam
+
+sleep 2
+echo "DONE"
+echo ""
+
+echo "No.4"
+su - kelvin touch /shared/pcteam/lontong
+ls -l /shared/pcteam
+sleep 2
+
+echo ""
+echo "No. 5"
+echo "server time.cloudflare.com iburst" >> /etc/chrony/chrony.conf
+systemctl restart chrony
+sleep 15
+chronyc sources
+sleep 2
+echo "DONE"
+
+echo ""
+echo "No. 6"
+touch search.txt
+grep /bin/bash /etc/passwd > search.txt
+sleep 2
+
+find /usr/share -type f -iname *.txt -exec tar -czf /root/archive.tar.gz {} 2> /dev/null \;
+sleep 5
+echo "DONE"
+
